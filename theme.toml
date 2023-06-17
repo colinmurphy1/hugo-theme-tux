@@ -1,0 +1,12 @@
+name = "Tux"
+license = "MIT"
+licenselink = "https://github.com/colinmurphy1/hugo-theme-tux/blob/master/LICENSE"
+description = ""
+homepage = "https://github.com/colinmurphy1/hugo-theme-tux"
+tags = []
+features = []
+min_version = "0.112.5"
+
+[author]
+  name = "Colin Murphy"
+  homepage = "https://colinmurphy.me"
