@@ -36,7 +36,7 @@
 {{- end }}
 
 <!-- Load all stylesheets from assets/css/ -->
-{{- $css := resources.GetMatch "css/*.css" | minify | fingerprint -}}
+{{- $css := resources.Match "css/**.css" | resources.Concat "main.css" | minify | fingerprint -}}
 <link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 
 <!-- Always show navigation bar if scripts are disabled and viewport is mobile sized -->
