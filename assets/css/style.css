@@ -5,7 +5,7 @@
     --text-color: #212121;
     --text-bold-color: #000000;
     --link-color: #1565c0;
-    --border-color: #ff8902;
+    --border-color: var(--bg-alt-color);
 
     --font-size-small: 0.9em;
     --border-radius: 8px;
@@ -19,13 +19,20 @@
     --text-color: #dadada;
     --text-bold-color: #fff;
     --link-color: #55acf2;
-    --border-color: #ff8902;
+    --border-color: var(--bg-alt-color);
 }
 }
 
 
 *, ::after, ::before {
     box-sizing: border-box;
+}
+
+/* Prevent iOS Safari/Webkit browsers from randomly adjusting font size */
+html {
+    -moz-text-size-adjust: none;
+    -webkit-text-size-adjust: none;
+    text-size-adjust: none;
 }
 
 body {
@@ -56,7 +63,7 @@ textarea {
 
 pre, code {
     font-family: 'Inconsolata', 'Consolas', 'Menlo', 'Monaco', monospace;
-    line-height: normal;
+    line-height: 1.25rem;
 }
 
 /* Headings */
@@ -99,9 +106,9 @@ a:active {
     text-decoration: underline;
 }
 
-/* Give most typography elements 2em margins */
-pre, blockquote, figure, hr {
-    margin: 2em 0;
+/* Give most other elements 2em margins */
+blockquote, figure, hr {
+    margin: 2rem 0;
 }
 
 /* Code Blocks */
@@ -110,37 +117,44 @@ pre {
     padding: 0.5em 1rem;
     background-color: var(--bg-alt-color);
     overflow: auto;
-}
-
-pre > * {
-    text-size-adjust: none; /* prevent webkit browsers from adjusting font sizes randomly */
     font-size: var(--font-size-small);
 }
 
 /* Blockquote */
 blockquote {
-    padding: 0.5em 1em;
-    border-left: solid 2px var(--border-color);
+    padding: 0.25rem 1rem;
+    border-left: solid 2px var(--link-color);
     background-color: var(--bg-alt-color);
 }
 blockquote p {
-    margin: 0.25em 0;
+    margin: 0.25rem 0;
     color: var(--text-bold-color);
 }
-blockquote > cite {
+blockquote cite {
     font-size: var(--font-size-small);
     color: inherit;
 }
 
 /* Nested blockquote */
 blockquote > blockquote {
-    margin: 1em 0.25em 1em 0.25em;
+    margin: 1rem 0.25rem 1rem 0.25rem;
 }
 
-/* Pre, Blockquote, Figure tags, and pagination, go slightly out of main content area on desktop */
-pre, blockquote, figure, .pagination {
+/* Figure, hr tags, and pagination, go slightly out of main content area on desktop and mobile */
+figure,
+hr,
+.pagination {
     margin-left: -2rem;
     margin-right: -2rem;
+}
+
+/* Pre and Blockquote tags will do the same, but in mobile only */
+@media screen and (max-width: 860px) {
+    pre,
+    blockquote {
+        margin-left: -2rem;
+        margin-right: -2rem;
+    }
 }
 
 /* Images */
@@ -199,7 +213,7 @@ header.site-header a:hover {
 /* Button used for toggling the mobile navigation bar */
 header.site-header .nav-button {
     border: 0;
-    padding: 0 0.5em;
+    padding: 0 0.5rem;
     font-weight: 600;
     cursor: pointer;
     font-size: inherit;
@@ -261,7 +275,7 @@ header.site-header .nav-button {
 @media screen and (max-width: 860px) {
     .posts ul li {
         flex-direction: column;
-        margin: 1em 0;
+        margin: 1rem 0;
         gap: 0;
     }
     .posts ul li time {
@@ -307,8 +321,7 @@ article header .post-meta .tags a:before {
 
 /* Add border radius to post-cover and pre tags on desktop */
 @media screen and (min-width: 860px) {
-    .post-cover img,
-    pre {
+    .post-cover img {
         border-radius: var(--border-radius);
     }
 }
@@ -350,7 +363,7 @@ article .pagination a.prev {
 
 /* Footer */
 footer {
-    margin-top: 2em;
+    margin-top: 2rem;
     text-align: center;
     font-size: var(--font-size-small);
     display: flex;
