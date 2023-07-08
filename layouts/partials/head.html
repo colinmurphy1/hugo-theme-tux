@@ -6,11 +6,11 @@
 <title>
     {{- if .IsHome }}
         {{- .Site.Title }}
-    {{ else }}
+    {{- else }}
         {{- block "title" . }}
             {{ with .Title }}{{ . }} | {{ end }}{{ .Site.Title }}
         {{- end }}
-    {{- end }}
+    {{- end -}}
 </title>
 
 {{- with .Description }}
@@ -25,19 +25,19 @@
 {{- template "_internal/twitter_cards.html" . }}
 {{- template "_internal/schema.html" . }}
 
-<!-- Load Google Web Fonts: Hanken Grotesk and Fira Code -->
+<!-- Load Google Web Fonts: Inter and Inconsolata -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Inconsolata&family=Inter:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet"> 
 
 <!-- Favicon -->
-{{- with .Site.Params.favicon }}
-<link rel="shortcut icon" href="{{ . | absURL }}" />
+{{- with .Site.Params.favicon -}}
+<link rel="shortcut icon" href="{{ . | absURL }}">
 {{- end }}
 
-<!-- Load stylesheets -->
-<link rel="stylesheet" href="{{ "css/style.css" | absURL }}">
-<link rel="stylesheet" href="{{ "css/syntax.css" | absURL }}">
+<!-- Load all stylesheets from assets/css/ -->
+{{- $css := resources.GetMatch "css/*.css" | minify | fingerprint -}}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" integrity="{{ $css.Data.Integrity }}">
 
 <!-- Always show navigation bar if scripts are disabled and viewport is mobile sized -->
 <noscript>
