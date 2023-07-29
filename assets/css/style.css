@@ -7,7 +7,7 @@
     --link-color: #1565c0;
     --border-color: var(--bg-alt-color);
 
-    --font-size-small: 0.9em;
+    --font-size-small: 1rem;
     --border-radius: 8px;
 }
 
@@ -23,7 +23,6 @@
 }
 }
 
-
 *, ::after, ::before {
     box-sizing: border-box;
 }
@@ -37,7 +36,7 @@ html {
 
 body {
     margin: 2rem;
-    line-height: 2rem;
+    line-height: 1.6;
     font-size: 1.125rem;
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -81,8 +80,8 @@ h6 {
 }
 
 h1 {
-    font-size: 2.25rem;
-    line-height: 3.25rem;
+    font-size: 2rem;
+    
 }
 
 /* H4-H6 use the same styling */
@@ -113,8 +112,7 @@ blockquote, figure, hr {
 
 /* Code Blocks */
 pre {
-    margin: 1rem 0;
-    padding: 0.5em 1rem;
+    padding: 0.5rem;
     background-color: var(--bg-alt-color);
     overflow: auto;
     font-size: var(--font-size-small);
@@ -183,7 +181,6 @@ header.site-header {
     margin: 2rem 0;
     display: flex;
     justify-content: space-between;
-    user-select: none; /* Prevents highlighting header */
 }
 
 /* Header navigation links */
@@ -218,7 +215,7 @@ header.site-header .nav-button {
     cursor: pointer;
     font-size: inherit;
     color: var(--link-color);
-    background-color: var(--bg-alt-color);
+    background-color: transparent;
     
     /* Hide menu button on desktop views */
     display: none;
@@ -239,8 +236,8 @@ header.site-header .nav-button {
         display: flex;
         flex-direction: column;
         text-align: center;
-        gap: 0.5em;
-        margin-top: 1em;
+        gap: 1rem;
+        margin-top: 1rem;
     }
 
     header.site-header .nav-button {
@@ -301,11 +298,6 @@ article header .post-meta > * {
     font-size: var(--font-size-small);
 }
 
-/* Post Date */
-article header .post-meta time {
-    font-weight: 600;
-}
-
 /* Post tags */
 article header .post-meta .tags a:before {
     content: "#";
@@ -337,8 +329,6 @@ article .pagination {
     justify-content: space-between;
     margin-top: 2rem;
     gap: 1rem;
-    font-size: var(--font-size-small);
-    line-height: normal;
 }
 
 article .pagination a.prev {
@@ -364,10 +354,9 @@ article .pagination a.prev {
 /* Footer */
 footer {
     margin-top: 2rem;
-    text-align: center;
     font-size: var(--font-size-small);
     display: flex;
-    justify-content: space-between;
+    gap: 1rem;
 }
 footer .copyright {
     color: var(--text-bold-color);
