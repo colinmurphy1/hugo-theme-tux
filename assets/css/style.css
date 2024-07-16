@@ -61,7 +61,7 @@ textarea {
 }
 
 pre, code {
-    font-family: 'Inconsolata', 'Consolas', 'Menlo', 'Monaco', monospace;
+    font-family: 'JetBrains Mono', 'Consolas', 'Menlo', 'Monaco', monospace;
     line-height: 1.25rem;
 }
 
